@@ -34,6 +34,9 @@ public class ButtonConfig {
         File parentDir = CONFIG_FILE.getParentFile();
         if (!parentDir.exists()) {
             parentDir.mkdirs();
+            if (!parentDir.mkdirs()) {
+                UwUfications.LOGGER.error("Unsuccessfully create directory or she already exists.");
+            }
         }
 
         try (FileWriter writer = new FileWriter(CONFIG_FILE)) {
